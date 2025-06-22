@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Disease Risk Predictor</title>
+ </head>
+<body>
+        <h2>Welcome to Heart Disease Risk Prediction App</h2>
+        <h3>Enter patient info</h3>
+        <form action = "{{ url_for('riskclassify') }}" method="POST">
+            <table border="1" style="border-color:gray; border-collapse:collapse;" cellpadding="5" cellspacing="5">
+                <tr>
+                    <td><h4>Age</h4> 
+                    <input type="number" name="age" min="1" max="365000" > </td>               
+                    <td><h4>Gender</h4>
+                        <select name = "gender">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </td>
+                    <td><h4>Height</h4> 
+                    <input type="number" name="height" min="1" max="300" > </td>
+                    <td><h4>Weight</h4> 
+                    <input type="number" name="weight" min="1" max="700" > </td>
+                    <td><h4>Upper BP</h4> 
+                    <input type="number" name="ap_hi" min="1" max="200" > </td>
+                    <td><h4>Lower BP</h4> 
+                    <input type="number" name="ap_lo" min="1" max="200" > </td>
+                    <td><h4>Cholesterol</h4>
+                        <select name = "cholesterol">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td>
+                    <td><h4>Glucose</h4>
+                        <select name = "gluc">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td>
+                    <td><h4>Smoke</h4>
+                        <select name = "smoke">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                        </select>
+                    </td>
+                    <td><h4>Alcohol</h4>
+                        <select name = "alco">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                        </select>
+                    </td>
+                    <td><h4>Active</h4>
+                        <select name = "active">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <!-- <input type="hidden" id="forminput" name="forminput"  >    -->        
+            <p><input type="submit" value="Does the patient have a heart disease risk?"></p>
+             {% if (results) %} 
+             <h3> Patient heart risk prediction: {{ results }}  </h3>
+             <p> for following features: </p>
+             <p> Age: {{age}} Gender: {{gender}} Height: {{height}} Weight: {{weight}} </p>
+             <p> Upper BP: {{ap_hi}} Lower BP: {{ap_lo}} Cholesterol: {{cholesterol}} Glucose: {{gluc}} </p>
+             <p> Smoke: {{smoke}} Alcohol: {{alco}} Active: {{active}} </p>
+             {% endif %} 
+        </form>
+</body>
+</html>
