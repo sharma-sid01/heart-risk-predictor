@@ -33,8 +33,8 @@ def riskclassify():
     input_data = json.dumps({"age": age, "gender": gender, "height": height, "weight": weight, "ap_hi": ap_hi, "ap_lo": ap_lo, "cholesterol": cholesterol, "gluc": gluc, "smoke": smoke, "alco": alco, "active": active})
 
     #url for heart disease risk prediction model
-    url = "http://localhost:5000/api"
-    # url = "https://databeat-f60cfc5fd791.herokuapp.com/api"
+    # url = "http://localhost:5000/api"
+    url = "https://heart-risk-model-81b316a8f36a.herokuapp.com/api"
   
     #post data to url
     results =  requests.post(url, input_data)
